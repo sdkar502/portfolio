@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sudhakar Mekala – UI/UX Design Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A2540;
+    --navy-mid: #163A5F;
+    --blue: #1B6FC8;
+    --blue-light: #3A8FE8;
+    --accent: #E8622A;
+    --accent-light: #F08050;
+    --teal: #0D8A74;
+    --teal-light: #12B099;
+    --gold: #C9963A;
+    --surface: #F7F9FC;
+    --surface2: #EDF2F8;
+    --border: #D1DCE8;
+    --text: #0A2540;
+    --text-mid: #3A5068;
+    --text-muted: #6B85A0;
+    --white: #FFFFFF;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--navy);
+    color: white;
+    padding: 56px 64px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 360px; height: 360px;
+    border-radius: 50%;
+    background: rgba(27,111,200,0.18);
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 40%;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(232,98,42,0.12);
+  }
+  .header-inner { position: relative; z-index: 1; max-width: 900px; }
+  .header-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blue-light);
+    border: 1px solid rgba(58,143,232,0.4);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .header h1 span { color: var(--blue-light); }
+  .header-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    margin-bottom: 32px;
+  }
+  .header-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    font-size: 12px; font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.85);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* NAV */
+  .case-nav {
+    background: white;
+    border-bottom: 1px solid var(--border);
+    padding: 0 64px;
+    display: flex;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-link {
+    font-size: 13px; font-weight: 500;
+    padding: 16px 20px;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  /* MAIN */
+  .main { max-width: 1000px; margin: 0 auto; padding: 56px 32px 80px; }
+
+  /* CASE STUDY CARD */
+  .case-study {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    box-shadow: 0 2px 20px rgba(10,37,64,0.06);
+  }
+
+  .case-hero {
+    padding: 44px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .case-hero.gov { background: linear-gradient(135deg, #0A2540 0%, #163A5F 100%); }
+  .case-hero.ecom { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 60%, #0F3460 100%); }
+
+  .case-number {
+    font-size: 11px; font-weight: 600; letter-spacing: 2.5px;
+    text-transform: uppercase; margin-bottom: 16px;
+    opacity: 0.6; color: white;
+  }
+  .case-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px; line-height: 1.15;
+    color: white; margin-bottom: 10px;
+  }
+  .case-client {
+    font-size: 15px; color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+  .case-meta { display: flex; flex-wrap: wrap; gap: 24px; }
+  .meta-item label {
+    display: block;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 3px;
+  }
+  .meta-item span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.85); }
+
+  /* CASE BODY */
+  .case-body { padding: 44px 48px; }
+
+  .section-label {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--blue); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: var(--border);
+  }
+
+  h2.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px; color: var(--navy);
+    margin-bottom: 14px;
+  }
+  .section-desc {
+    font-size: 15px; color: var(--text-mid);
+    line-height: 1.75; max-width: 700px;
+    margin-bottom: 32px;
+  }
+
+  /* ROLE BADGES */
+  .role-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+  .badge {
+    font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 6px;
+  }
+  .badge-blue { background: #EBF3FC; color: #1B6FC8; }
+  .badge-teal { background: #E0F4F1; color: #0D8A74; }
+  .badge-orange { background: #FEF0E8; color: #C05020; }
+  .badge-purple { background: #EEF0FD; color: #4A40C0; }
+  .badge-gold { background: #FBF4E5; color: #9A6C18; }
+
+  /* CHALLENGE / SOLUTION GRID */
+  .cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+  .cs-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 22px;
+  }
+  .cs-card h4 {
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cs-card.challenge h4 { color: var(--accent); }
+  .cs-card.solution h4 { color: var(--teal); }
+  .cs-card p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+  /* PROCESS STEPS */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .process-step {
+    text-align: center;
+    padding: 18px 10px 14px;
+    background: var(--surface2);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .process-step::after {
+    content: '→';
+    position: absolute;
+    right: -10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 14px;
+    z-index: 1;
+  }
+  .process-step:last-child::after { display: none; }
+  .step-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 8px;
+    font-size: 16px;
+  }
+  .process-step h5 { font-size: 11px; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+  .process-step p { font-size: 10px; color: var(--text-muted); line-height: 1.4; }
+
+  /* DELIVERABLES */
+  .deliverables {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+  .deliverable-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .d-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 14px;
+  }
+  .d-icon.blue { background: #EBF3FC; }
+  .d-icon.teal { background: #E0F4F1; }
+  .d-icon.orange { background: #FEF0E8; }
+  .d-icon.purple { background: #EEF0FD; }
+  .deliverable-item h5 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .deliverable-item p { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+
+  /* OUTCOMES */
+  .outcomes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .outcome-card {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 22px 18px;
+    text-align: center;
+  }
+  .outcome-card.accent { background: var(--accent); }
+  .outcome-card.teal { background: var(--teal); }
+  .outcome-stat {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px; color: white;
+    line-height: 1; margin-bottom: 6px;
+  }
+  .outcome-label { font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+  /* TOOLS USED */
+  .tools-row {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .tool-tag {
+    font-size: 11px; font-weight: 500;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-mid);
+    background: var(--surface);
+  }
+
+  /* MOCKUP SECTION */
+  .mockup-section {
+    background: var(--surface2);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 36px;
+    border: 1px solid var(--border);
+  }
+  .mockup-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* BROWSER MOCKUP */
+  .browser-frame {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(10,37,64,0.1);
+  }
+  .browser-bar {
+    background: #F0F2F5;
+    padding: 10px 14px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .browser-dot.red { background: #FF5F57; }
+  .browser-dot.yellow { background: #FEBC2E; }
+  .browser-dot.green { background: #28C840; }
+  .browser-url {
+    flex: 1; background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px; padding: 4px 10px;
+    font-size: 11px; color: var(--text-muted);
+    margin-left: 6px;
+  }
+  .browser-content { padding: 0; }
+
+  /* DMV MOCKUP */
+  .dmv-header {
+    background: #003366;
+    padding: 12px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .dmv-logo { font-size: 13px; font-weight: 700; color: white; }
+  .dmv-logo span { color: #90C0F0; }
+  .dmv-nav-links { display: flex; gap: 16px; }
+  .dmv-nav-link { font-size: 10px; color: rgba(255,255,255,0.7); }
+  .dmv-hero {
+    background: linear-gradient(135deg, #003366 0%, #005BAA 100%);
+    padding: 28px 20px 24px;
+    text-align: center;
+  }
+  .dmv-hero h3 { font-size: 18px; color: white; font-weight: 600; margin-bottom: 6px; }
+  .dmv-hero p { font-size: 11px; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+  .dmv-search {
+    display: flex; max-width: 380px; margin: 0 auto;
+    background: white; border-radius: 6px; overflow: hidden;
+  }
+  .dmv-search input {
+    flex: 1; padding: 8px 12px;
+    border: none; font-size: 11px; outline: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .dmv-search button {
+    background: #E8622A; color: white;
+    border: none; padding: 8px 16px;
+    font-size: 11px; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .dmv-services {
+    padding: 16px 20px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  .dmv-service-card {
+    border: 1px solid #E0E8F0;
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    background: #FAFCFF;
+  }
+  .dmv-service-icon { font-size: 20px; margin-bottom: 6px; }
+  .dmv-service-card h5 { font-size: 10px; font-weight: 600; color: #003366; margin-bottom: 2px; }
+  .dmv-service-card p { font-size: 9px; color: #6B85A0; }
+  .dmv-accessibility-bar {
+    background: #EBF3FC; border-top: 1px solid #BBDAF5;
+    padding: 7px 20px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .a11y-badge {
+    font-size: 9px; font-weight: 700;
+    background: #003366; color: white;
+    padding: 2px 7px; border-radius: 3px;
+  }
+  .dmv-accessibility-bar span { font-size: 10px; color: #1B5FAA; }
+
+  /* ECOM MOCKUP */
+  .ecom-topbar {
+    background: #1A1A2E; padding: 8px 16px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .ecom-logo { font-size: 14px; font-weight: 700; color: white; letter-spacing: 1px; }
+  .ecom-nav { display: flex; gap: 14px; align-items: center; }
+  .ecom-nav-item { font-size: 10px; color: rgba(255,255,255,0.65); }
+  .ecom-cart { background: #E8622A; color: white; font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 4px; }
+  .ecom-body { display: grid; grid-template-columns: 200px 1fr; }
+  .ecom-filters { background: #F7F9FC; border-right: 1px solid var(--border); padding: 14px; }
+  .ecom-filters h4 { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+  .filter-item { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+  .filter-item input { accent-color: #1B6FC8; }
+  .filter-item label { font-size: 11px; color: var(--text-mid); }
+  .filter-section { margin-bottom: 14px; }
+  .ecom-products { padding: 14px; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .product-card {
+    border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+    background: white;
+  }
+  .product-img {
+    height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .product-info { padding: 8px 10px; }
+  .product-info h5 { font-size: 10px; font-weight: 600; color: var(--navy); margin-bottom: 2px; }
+  .product-price { font-size: 12px; font-weight: 700; color: var(--accent); }
+  .product-old-price { font-size: 10px; color: var(--text-muted); text-decoration: line-through; margin-left: 4px; }
+  .a11y-indicator {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 9px; color: var(--teal); margin-top: 4px;
+  }
+  .a11y-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+  /* TESTIMONIAL / IMPACT QUOTE */
+  .impact-quote {
+    border-left: 4px solid var(--blue);
+    padding: 16px 20px;
+    background: #EBF3FC;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 32px;
+  }
+  .impact-quote p { font-size: 15px; color: var(--navy); font-style: italic; line-height: 1.65; margin-bottom: 8px; }
+  .impact-quote cite { font-size: 12px; color: var(--text-muted); font-style: normal; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 2px dashed var(--border); margin: 48px 0; }
+
+  /* FOOTER */
+  .portfolio-footer {
+    background: var(--navy);
+    color: white;
+    text-align: center;
+    padding: 36px 32px;
+  }
+  .portfolio-footer h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px; margin-bottom: 8px;
+  }
+  .portfolio-footer p { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .footer-contact { display: flex; justify-content: center; gap: 32px; }
+  .fc-item { font-size: 13px; color: rgba(255,255,255,0.8); }
+  .fc-item span { color: var(--blue-light); }
+
+  @media print {
+    .case-nav { display: none; }
+    body { background: white; }
+    .case-study { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <div class="header-tag">UI/UX Design Portfolio</div>
+    <h1>Sudhakar Mekala<br/><span>Design &amp; Accessibility Work</span></h1>
+    <p class="header-sub">12+ years delivering user-centered digital experiences for government agencies and enterprise platforms — with WCAG 2.0 / Section 508 compliance built in from day one.</p>
+    <div class="header-pills">
+      <span class="pill">UI/UX Design</span>
+      <span class="pill">User Research</span>
+      <span class="pill">WCAG 2.0 / Section 508</span>
+      <span class="pill">Figma · Adobe XD</span>
+      <span class="pill">HTML5 · CSS3 · Bootstrap</span>
+      <span class="pill">Sitecore · Drupal</span>
+      <span class="pill">Agile / Scrum</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="case-nav">
+  <a href="#case1" class="nav-link active">Case Study 01 — NY State DMV</a>
+  <a href="#case2" class="nav-link">Case Study 02 — Bed Bath &amp; Beyond</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDY 1: NY STATE DMV
+  ═══════════════════════════════════════════ -->
+  <div class="case-study" id="case1">
+    <div class="case-hero gov">
+      <div class="case-number">Case Study 01</div>
+      <div class="case-title">NY State DMV<br/>Digital Modernization</div>
+      <div class="case-client">New York State Office of Information Technology Services (ITS) · Albany, NY</div>
+      <div class="case-meta">
+        <div class="meta-item"><label>Role</label><span>Senior UI/UX Designer &amp; Accessibility Specialist</span></div>
+        <div class="meta-item"><label>Duration</label><span>June 2019 – Present (5+ Years)</span></div>
+        <div class="meta-item"><label>Platform</label><span>Government Web Portal · Sitecore CMS</span></div>
+        <div class="meta-item"><label>Users</label><span>~4 Million NY State Residents</span></div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">Redesigning Government Services for Every New Yorker</h2>
+      <p class="section-desc">Led end-to-end UI/UX design for the digital transformation of New York State's DMV web portal — redesigning online services for license status, address changes, driving records, and vehicle registration to be simple, accessible, and usable by all residents regardless of ability.</p>
+
+      <div class="role-badges">
+        <span class="badge badge-blue">User Research</span>
+        <span class="badge badge-teal">Service Design</span>
+        <span class="badge badge-orange">WCAG 2.0 Compliance</span>
+        <span class="badge badge-purple">Figma Prototyping</span>
+        <span class="badge badge-gold">Sitecore CMS</span>
+        <span class="badge badge-blue">UAT Leadership</span>
+        <span class="badge badge-teal">HTML5 / CSS3 / Bootstrap</span>
+      </div>
+
+      <!-- CHALLENGE / SOLUTION -->
+      <div class="section-label">Challenge &amp; Solution</div>
+      <div class="cs-grid">
+        <div class="cs-card challenge">
+          <h4>The Challenge</h4>
+          <p>The existing DMV portal had fragmented navigation, inaccessible form flows, poor mobile responsiveness, and significant WCAG 2.0 violations — creating barriers for residents with disabilities and high task abandonment rates across critical services.</p>
+        </div>
+        <div class="cs-card solution">
+          <h4>The Solution</h4>
+          <p>Conducted deep user research to map resident journeys, then redesigned service flows using component-based UI patterns, fully accessible HTML5 components, and ARIA-enhanced interactions — all validated through iterative UAT sessions with real users.</p>
+        </div>
+      </div>
+
+      <!-- DESIGN PROCESS -->
+      <div class="section-label">Design Process</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-icon" style="background:#EBF3FC">🔍</div>
+          <h5>Research</h5>
+          <p>User interviews, ethnographic sessions, analytics review</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#E0F4F1">🗺</div>
+          <h5>Map</h5>
+          <p>IA mapping, user flows, journey mapping</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#EEF0FD">✏️</div>
+          <h5>Design</h5>
+          <p>Wireframes, hi-fi mockups in Figma &amp; Adobe XD</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#FBF4E5">🧪</div>
+          <h5>Test</h5>
+          <p>UAT sessions, A11Y audits, cross-browser testing</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#FEF0E8">🚀</div>
+          <h5>Deliver</h5>
+          <p>Agile sprint delivery, Sitecore implementation</p>
+        </div>
+      </div>
+
+      <!-- LIVE PORTAL MOCKUP -->
+      <div class="mockup-section">
+        <div class="mockup-label">🖥 Redesigned Portal — Visual Mockup</div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+            <div class="browser-url">dmv.ny.gov · Redesigned Portal</div>
+          </div>
+          <div class="browser-content">
+            <div class="dmv-header">
+              <div class="dmv-logo">NY<span>DMV</span> · Digital Services Portal</div>
+              <div class="dmv-nav-links">
+                <span class="dmv-nav-link">Licenses</span>
+                <span class="dmv-nav-link">Vehicles</span>
+                <span class="dmv-nav-link">Records</span>
+                <span class="dmv-nav-link">Accessibility ♿</span>
+              </div>
+            </div>
+            <div class="dmv-hero">
+              <h3>Your DMV. Online. Accessible to Everyone.</h3>
+              <p>Manage your license, vehicle, and records — fully accessible, WCAG 2.0 compliant.</p>
+              <div class="dmv-search">
+                <input type="text" placeholder="Search DMV services, forms, information..." readonly/>
+                <button>Search</button>
+              </div>
+            </div>
+            <div class="dmv-services">
+              <div class="dmv-service-card">
+                <div class="dmv-service-icon">🪪</div>
+                <h5>License Status</h5>
+                <p>Check &amp; renew your license online</p>
+              </div>
+              <div class="dmv-service-card">
+                <div class="dmv-service-icon">📋</div>
+                <h5>Driving Record</h5>
+                <p>Request your official driving record</p>
+              </div>
+              <div class="dmv-service-card">
+                <div class="dmv-service-icon">🚗</div>
+                <h5>Vehicle Registration</h5>
+                <p>Register or renew your vehicle</p>
+              </div>
+              <div class="dmv-service-card">
+                <div class="dmv-service-icon">📍</div>
+                <h5>Address Change</h5>
+                <p>Update your address on file</p>
+              </div>
+            </div>
+            <div class="dmv-accessibility-bar">
+              <span class="a11y-badge">WCAG 2.0 AA</span>
+              <span class="a11y-badge" style="background:#0D8A74">Section 508</span>
+              <span>Fully accessible · Screen reader optimized · Keyboard navigable · Color contrast verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY DELIVERABLES -->
+      <div class="section-label">Key Deliverables</div>
+      <div class="deliverables">
+        <div class="deliverable-item">
+          <div class="d-icon blue">📐</div>
+          <div>
+            <h5>Figma Design System</h5>
+            <p>Component library with 60+ reusable, accessible UI components including forms, navigation, cards, and data tables — all WCAG 2.0 compliant.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon teal">🗂</div>
+          <div>
+            <h5>IA Maps &amp; User Flows</h5>
+            <p>Complete information architecture mapping and user flow documentation for 8 primary DMV service journeys.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon orange">📱</div>
+          <div>
+            <h5>Responsive UI Templates</h5>
+            <p>HTML5/CSS3/Bootstrap 4.0+ coded page templates covering web, tablet, and mobile breakpoints — production-ready for Sitecore CMS.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon purple">♿</div>
+          <div>
+            <h5>WCAG Audit Reports &amp; VPATs</h5>
+            <p>Comprehensive accessibility audit reports, VPAT documentation, and remediation specifications covering 200+ identified issues across DMV digital services.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon blue">🧪</div>
+          <div>
+            <h5>UAT Plans &amp; Test Scripts</h5>
+            <p>End-to-end UAT documentation covering user scenarios, acceptance criteria, automated test integration (Axe/WAVE), and closure reporting.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon teal">📄</div>
+          <div>
+            <h5>PDF Remediation Templates</h5>
+            <p>Fully tagged, Section 508-compliant PDF form templates for DMV services including driver records requests and registration renewals.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="section-label">Impact &amp; Outcomes</div>
+      <div class="outcomes">
+        <div class="outcome-card">
+          <div class="outcome-stat">100%</div>
+          <div class="outcome-label">WCAG 2.0 AA Compliance Achieved Across Redesigned Services</div>
+        </div>
+        <div class="outcome-card accent">
+          <div class="outcome-stat">4M+</div>
+          <div class="outcome-label">NY State Residents Served Through Redesigned Digital Portal</div>
+        </div>
+        <div class="outcome-card teal">
+          <div class="outcome-stat">5+ Yrs</div>
+          <div class="outcome-label">Continuous Agile Delivery Across DMV Digital Modernization Program</div>
+        </div>
+      </div>
+
+      <div class="impact-quote">
+        <p>"Accessibility isn't a checkbox — it's embedded from the first wireframe. By designing for the most constrained users first, we created better experiences for everyone, from a 20-year-old on mobile to a 75-year-old using a screen reader."</p>
+        <cite>— Sudhakar Mekala, reflecting on design philosophy for NY State DMV</cite>
+      </div>
+
+      <div class="tools-row">
+        <span class="tool-tag">Figma</span><span class="tool-tag">Adobe XD</span><span class="tool-tag">Illustrator</span><span class="tool-tag">InDesign</span><span class="tool-tag">Photoshop</span><span class="tool-tag">Miro</span><span class="tool-tag">HTML5</span><span class="tool-tag">CSS3</span><span class="tool-tag">Bootstrap 4.0+</span><span class="tool-tag">JavaScript</span><span class="tool-tag">Sitecore CMS</span><span class="tool-tag">Axe</span><span class="tool-tag">WAVE</span><span class="tool-tag">JAWS</span><span class="tool-tag">NVDA</span><span class="tool-tag">AMP (Level Access)</span><span class="tool-tag">JIRA</span><span class="tool-tag">Confluence</span><span class="tool-tag">Git</span><span class="tool-tag">Google Analytics</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ═══════════════════════════════════════════
+       CASE STUDY 2: BED BATH & BEYOND
+  ═══════════════════════════════════════════ -->
+  <div class="case-study" id="case2">
+    <div class="case-hero ecom">
+      <div class="case-number">Case Study 02</div>
+      <div class="case-title">Bed Bath &amp; Beyond<br/>E-Commerce UX Redesign</div>
+      <div class="case-client">Bed Bath &amp; Beyond · Union, NJ — E-Commerce Platform, Digital Accessibility &amp; UI/UX</div>
+      <div class="case-meta">
+        <div class="meta-item"><label>Role</label><span>UI/UX Designer &amp; Web Accessibility Engineer</span></div>
+        <div class="meta-item"><label>Duration</label><span>April 2018 – March 2019 (1 Year)</span></div>
+        <div class="meta-item"><label>Platform</label><span>E-Commerce Web &amp; Mobile · CMS-Driven</span></div>
+        <div class="meta-item"><label>Scope</label><span>Catalog · Cart · Checkout · Account</span></div>
+      </div>
+    </div>
+
+    <div class="case-body">
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">Accessible E-Commerce at Enterprise Scale</h2>
+      <p class="section-desc">Served as UI/UX Designer and Web Accessibility Engineer for a large-scale e-commerce platform redesign — improving user experience across product browsing, cart, checkout, and account management while achieving full WCAG 2.0 A/AA and Section 508 compliance across all customer-facing touchpoints.</p>
+
+      <div class="role-badges">
+        <span class="badge badge-blue">E-Commerce UX</span>
+        <span class="badge badge-teal">Accessibility Audit</span>
+        <span class="badge badge-orange">Responsive Design</span>
+        <span class="badge badge-purple">Figma / Adobe XD</span>
+        <span class="badge badge-gold">UAT &amp; Research</span>
+        <span class="badge badge-blue">HTML5 / Bootstrap</span>
+        <span class="badge badge-teal">Angular Components</span>
+      </div>
+
+      <div class="cs-grid">
+        <div class="cs-card challenge">
+          <h4>The Challenge</h4>
+          <p>The existing e-commerce platform had inconsistent UI patterns, inaccessible dynamic content (cart updates, modals, product filters), poor mobile UX, and significant WCAG violations that excluded users with disabilities from completing purchases.</p>
+        </div>
+        <div class="cs-card solution">
+          <h4>The Solution</h4>
+          <p>Conducted user research and accessibility audits across all customer journeys, redesigned component-level UI patterns, and implemented accessible HTML5/ARIA components — validated through structured UAT sessions with real customers.</p>
+        </div>
+      </div>
+
+      <!-- DESIGN PROCESS -->
+      <div class="section-label">Design Process</div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-icon" style="background:#EBF3FC">🛒</div>
+          <h5>Audit</h5>
+          <p>A11Y audit across catalog, cart, checkout</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#E0F4F1">👥</div>
+          <h5>Research</h5>
+          <p>Customer sessions, usability testing</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#EEF0FD">🎨</div>
+          <h5>Design</h5>
+          <p>Figma components, responsive layouts</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#FBF4E5">💻</div>
+          <h5>Build</h5>
+          <p>HTML5, CSS3, Bootstrap, ARIA components</p>
+        </div>
+        <div class="process-step">
+          <div class="step-icon" style="background:#FEF0E8">✅</div>
+          <h5>Validate</h5>
+          <p>UAT, cross-browser, AT testing</p>
+        </div>
+      </div>
+
+      <!-- E-COM MOCKUP -->
+      <div class="mockup-section">
+        <div class="mockup-label">🖥 Redesigned E-Commerce Interface — Visual Mockup</div>
+        <div class="browser-frame">
+          <div class="browser-bar">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+            <div class="browser-url">bedbathandbeyond.com · Accessible Shopping Experience</div>
+          </div>
+          <div class="browser-content">
+            <div class="ecom-topbar">
+              <div class="ecom-logo">BED BATH &amp; BEYOND</div>
+              <div class="ecom-nav">
+                <span class="ecom-nav-item">Bath</span>
+                <span class="ecom-nav-item">Bedding</span>
+                <span class="ecom-nav-item">Kitchen</span>
+                <span class="ecom-nav-item">Sale</span>
+                <span class="ecom-cart">Cart (3)</span>
+              </div>
+            </div>
+            <div class="ecom-body">
+              <div class="ecom-filters">
+                <div class="filter-section">
+                  <h4>Category</h4>
+                  <div class="filter-item"><input type="checkbox" checked id="f1" aria-label="Towels filter"/><label for="f1">Towels</label></div>
+                  <div class="filter-item"><input type="checkbox" id="f2" aria-label="Sheets filter"/><label for="f2">Sheets</label></div>
+                  <div class="filter-item"><input type="checkbox" id="f3" aria-label="Pillows filter"/><label for="f3">Pillows</label></div>
+                </div>
+                <div class="filter-section">
+                  <h4>Accessibility</h4>
+                  <div class="filter-item"><input type="checkbox" checked id="f4" aria-label="Screen reader filter"/><label for="f4">Screen Reader ✓</label></div>
+                  <div class="filter-item"><input type="checkbox" checked id="f5" aria-label="Keyboard nav filter"/><label for="f5">Keyboard Nav ✓</label></div>
+                </div>
+                <div class="filter-section">
+                  <h4>Price Range</h4>
+                  <div class="filter-item"><input type="checkbox" id="f6" aria-label="Under $25 filter"/><label for="f6">Under $25</label></div>
+                  <div class="filter-item"><input type="checkbox" checked id="f7" aria-label="$25 - $50 filter"/><label for="f7">$25 – $50</label></div>
+                  <div class="filter-item"><input type="checkbox" id="f8" aria-label="Over $50 filter"/><label for="f8">Over $50</label></div>
+                </div>
+              </div>
+              <div class="ecom-products">
+                <div class="product-grid">
+                  <div class="product-card" tabindex="0" role="article" aria-label="Ultimate Comfort Towel Set product card">
+                    <div class="product-img" style="background:#EBF3FC">🛁</div>
+                    <div class="product-info">
+                      <h5>Ultimate Comfort Towel Set</h5>
+                      <div><span class="product-price">$34.99</span><span class="product-old-price">$49.99</span></div>
+                      <div class="a11y-indicator"><div class="a11y-dot"></div>WCAG 2.0 AA</div>
+                    </div>
+                  </div>
+                  <div class="product-card" tabindex="0" role="article" aria-label="Luxe 400TC Sheet Set product card">
+                    <div class="product-img" style="background:#FEF0E8">🛏</div>
+                    <div class="product-info">
+                      <h5>Luxe 400TC Sheet Set</h5>
+                      <div><span class="product-price">$44.99</span><span class="product-old-price">$69.99</span></div>
+                      <div class="a11y-indicator"><div class="a11y-dot"></div>WCAG 2.0 AA</div>
+                    </div>
+                  </div>
+                  <div class="product-card" tabindex="0" role="article" aria-label="Cloud Pillow 2-Pack product card">
+                    <div class="product-img" style="background:#EEF0FD">☁️</div>
+                    <div class="product-info">
+                      <h5>Cloud Pillow 2-Pack</h5>
+                      <div><span class="product-price">$29.99</span></div>
+                      <div class="a11y-indicator"><div class="a11y-dot"></div>WCAG 2.0 AA</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY DELIVERABLES -->
+      <div class="section-label">Key Deliverables</div>
+      <div class="deliverables">
+        <div class="deliverable-item">
+          <div class="d-icon blue">🎨</div>
+          <div>
+            <h5>Accessible UI Component Library</h5>
+            <p>Figma component library with accessible modals, cart widgets, product filters, form validation, and checkout flows — with ARIA annotations for developer handoff.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon orange">📱</div>
+          <div>
+            <h5>Responsive Design System</h5>
+            <p>HTML5/CSS3/Bootstrap 4.0+ coded components covering desktop, tablet, and mobile breakpoints — with documented breakpoints and spacing guidelines.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon teal">♿</div>
+          <div>
+            <h5>WCAG 2.0 Audit &amp; Remediation</h5>
+            <p>Comprehensive accessibility audit of catalog, cart, and checkout journeys — with prioritized remediation reports and code-level fix guidance for the product team.</p>
+          </div>
+        </div>
+        <div class="deliverable-item">
+          <div class="d-icon purple">🧪</div>
+          <div>
+            <h5>UAT Plan &amp; Customer Research</h5>
+            <p>Structured UAT sessions with customer participants across JAWS, NVDA, and mobile screen readers — with research synthesis reports delivered to stakeholders.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTCOMES -->
+      <div class="section-label">Impact &amp; Outcomes</div>
+      <div class="outcomes">
+        <div class="outcome-card">
+          <div class="outcome-stat">WCAG</div>
+          <div class="outcome-label">Full A/AA Compliance Across All Customer-Facing Touchpoints</div>
+        </div>
+        <div class="outcome-card accent">
+          <div class="outcome-stat">4</div>
+          <div class="outcome-label">Core E-Commerce Journeys Redesigned — Catalog, Cart, Checkout, Account</div>
+        </div>
+        <div class="outcome-card teal">
+          <div class="outcome-stat">100%</div>
+          <div class="outcome-label">Responsive Coverage Across Web, Tablet &amp; Mobile Breakpoints</div>
+        </div>
+      </div>
+
+      <div class="impact-quote">
+        <p>"E-commerce accessibility isn't just about compliance — it directly impacts revenue. Every barrier we remove for a user with a disability is a completed purchase that wasn't happening before. Good accessibility is good business."</p>
+        <cite>— Sudhakar Mekala, reflecting on the e-commerce accessibility engagement</cite>
+      </div>
+
+      <div class="tools-row">
+        <span class="tool-tag">Figma</span><span class="tool-tag">Adobe XD</span><span class="tool-tag">Illustrator</span><span class="tool-tag">Photoshop</span><span class="tool-tag">HTML5</span><span class="tool-tag">CSS3</span><span class="tool-tag">Bootstrap 4.0+</span><span class="tool-tag">JavaScript</span><span class="tool-tag">Angular</span><span class="tool-tag">JAWS</span><span class="tool-tag">NVDA</span><span class="tool-tag">WAVE</span><span class="tool-tag">Axe</span><span class="tool-tag">BrowserStack</span><span class="tool-tag">Section 508</span><span class="tool-tag">WCAG 2.0</span><span class="tool-tag">JIRA</span><span class="tool-tag">Git</span><span class="tool-tag">Google Analytics</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="portfolio-footer">
+  <h3>Sudhakar Mekala — Available for CT-DOAS Engagement</h3>
+  <p>12+ years of UI/UX design, government digital services, and web accessibility experience.</p>
+  <div class="footer-contact">
+    <div class="fc-item">Email: <span>Sdkar502@gmail.com</span></div>
+    <div class="fc-item">Phone: <span>971-238-6377</span></div>
+    <div class="fc-item">Location: <span>Albany, NY</span></div>
+  </div>
+</div>
+
+</body>
+</html>
